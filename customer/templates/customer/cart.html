@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Cart{% endblock title %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <div class="container-top">
+    <div class="head-container">
+        <h1 class="cart-heading" style="color: white;"> Shopping cart </h1>
+      </div>
+    
+  
+    <div class="container">
+  
+      <section id="cart"> 
+        {% for item in items %}
+        <article class="product">
+          <header>
+              <img src="{{item.product.image.url}}" alt="">
+          </header>
+  
+          <div class="content">
+  
+            <h1>{{item.product.name}}</h1>
+  
+            {{item.product.desc}}
+          </div>
+          
+          
+          <footer class="content">
+            <span data-product={{ item.product.id }} data-action="remove" class="qt-minus update-cart">-</span>
+            <span class="qt">{{item.quantity}}</span>
+            <span data-product={{ item.product.id }} data-action="add" class="qt-plus update-cart">+</span>
+  
+            <h2 class="full-price">
+                ${{ item.get_total|floatformat:2 }}
+            </h2>
+  
+            <h2 class="price">
+                ${{item.product.price}}
+            </h2>
+          </footer>
+        </article>
+        {% endfor %}
+  
+
+      </section>
+  
+    </div>
+  
+   
+      <div class="container clearfix">
+  
+  
+        <div class="right">
+          <h1 class="total">Total: <span>${{ order.get_cart_total|floatformat:2 }}</span>€</h1>
+          <a class="btn">Checkout</a>
+        </div>
+  
+      </div>
+      </div>
+{% endblock %}
+
+
+
+
+      
