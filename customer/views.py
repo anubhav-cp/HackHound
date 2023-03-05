@@ -15,7 +15,7 @@ def store(request):
 
     products = Product.objects.all
     context = {'products': products, 'cartItems': cartItems}
-    return render(request, "customer/store.html", context)
+    return render(request, "customer/index.html", context)
 
 def cart(request):
     data = cartData(request)
@@ -33,7 +33,7 @@ def checkout(request):
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
-    send_sms()
+
     context = {'items': items, 'order': order, 'cartItems': cartItems}
     print(context)
     return render(request, "customer/checkout.html", context)

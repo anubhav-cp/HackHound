@@ -53,7 +53,7 @@
   
         <div class="right">
           <h1 class="total">Total: <span>${{ order.get_cart_total|floatformat:2 }}</span>€</h1>
-          <a class="btn">Checkout</a>
+          <a class="btn" href="{% url 'checkout' %}">Checkout</a>
         </div>
   
       </div>

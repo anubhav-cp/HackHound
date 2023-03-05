@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href = "{% static 'css/index.css' %}" rel="stylesheet"/>
+    <link href = "{% static 'css/tailwind.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/signup.css' %}" rel="stylesheet"/>
+
+    <style>
+      body{
+        margin: 0;
+        -webkit-font-smoothing:
+        antialiased;
+      }
+    </style>
+  </head>
+  <body class="bg-black">
+    <nav>
+      <!-- <a href = "/">Sphere</a> -->
+      <img  class="h-36" src="{% static 'images/logo.png' %}">
+      <ul>
+        <li><a href = "#">Menu</a></li>
+        <li><a href = "#">Reviews</a></li>
+        <li><a href = "#">ContactUs</a></li>
+        <li><a href = "#">Admin</a></li>
+        <li><a href = "{% url 'cart' %}">Cart🛒</a></li>
+      </ul>
+    </nav>
+    
+    
+    
+    <div class="container_div" style="position:relative;">
+      <div class="hover_div" style="position:absolute; width:25px !important; display:block;z-index:9999">                            
+          <!-- <img class="some_class" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Food-and-restaurant.svg/1200px-Food-and-restaurant.svg.png"> -->
+      </div>
+      
+
+
+      <div class="HeroText">
+        <div class="Marti"><h1>MARTIAN</h1></div>
+        <div class="Feast"><h1 class="freast">Feast</h1></div>
+      </div>
+
+      <div class="  " id="canvasContainer">
+        <canvas class="webgl"></canvas>
+      </div>
+      
+      
+  </div>
+
+
+  <section class="signUp">
+    <div class="signup-box">
+      <h1 class="signup-h1">Sign Up</h1>
+      <h4>It's free and only takes a minute</h4>
+      <form class="signupForm">
+        <label>First Name</label>
+        <input type="text" placeholder="" />
+        <label>Last Name</label>
+        <input type="text" placeholder="" />
+        <label>Email</label>
+        <input type="email" placeholder="" />
+        <label>Password</label>
+        <input type="password" placeholder="" />
+        <input type="button" value="Submit" />
+      </form>
+      <p class="para-2">
+        Already have an account? <a href="login.html">Login here</a>
+      </p> 
+    </div>
+  </section>
+   
+
+<!-- Menu -->
+<section class="MenuSection">
+  <div class="heading">
+      <h1>Order your food here!</h1>
+  </div>
+  <div class="Menucontainer">
+      {% for product in products %}
+      <div class="box">
+          <img src="{{product.image.url}}">
+          <h2>{{product.name}}</h2>
+          <p>All sizes of burgers available!!</p>
+          <span>${{product.price}}</span>
+        
+          <div class="options">
+              <a href="#">View</a>
+              <button data-product="{{ product.id }}" data-action="add" class="update-cart"><a href="#">Add to Cart</a></button>
+          </div>
+      </div>
+      {% endfor %}
+
+  </div>
+  </section>
+
+
+
+   <!-- progress bar -->
+<section>
+   <div class="container">
+
+    <img  class="alien1" src="{% static 'images/vecteezy_alien-wearing-bucket-hat-vector_.jpg' %}" style="height: 150px;"/>
+
+    <div class="top">
+        <h1>CAN'T WAIT?</h1>
+        <p>Venus Tu meri, Mars Mai tera. Aao kha lo Chola Bhatura!😬</p>
+    </div>
+
+    <div class="timeline">
+        <div class="line"></div>
+
+        <div class="section">
+            <div class="bead"></div>
+            <div class="content">
+                <h2>ORDER STATUS:</h2>
+                <img src="{% static 'images/vecteezy_stir-fry-salad-with-sushi-and-shrimps-in-a-bowl-with-a-slate_9345591_131.png' %}">
+                <p>Your Order Is Accepted</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="bead"></div>
+            <div class="content">
+                <h2>Add Customization:</h2>
+                <p><label for="freeform">Enter Text-</label>
+                  <br>
+                  
+                  <textarea id="freeform" name="freeform" rows="2" cols="30">
+                  Enter text here...
+                  </textarea></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="bead"></div>
+            <div class="content">
+                <h2>Order Status:</h2>
+                <img src="./img/vecteezy_fresh-mustard-png_8848375_842 (1).png">
+                <p>Please Wait!Chef's working real hard...</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="bead"></div>
+            <div class="content">
+                <h2>Order Status!</h2>
+                <img src="./img/6ac402b72531aac62ee20fff04f23692-removebg-preview.png">
+                <p>Order Is Ready!!Please Collect It From Counter</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="bead"></div>
+            <div class="content">
+                <h2>Rate Our Food</h2>
+                <p>Loved Our Food? ⭐⭐⭐⭐⭐</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+</section>
+<!-- footer -->
+<section>
+<footer>
+    <div class="row">
+        <div class="col">
+            <img class="logo" src="./img/logo.png" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum molestias quos quidem
+                consequuntur, hic sit excepturi! Facere quia quisquam sit ipsum enim fuga beatae. Molestiae
+                excepturi quidem sit illo cumque voluptatum error nobis.</p>
+        </div>
+        <div class="col">
+            <h3>Contact Us <div class="underline"><span></span></div>
+            </h3>
+            <p>email@gmail.com</p>
+            <p>+91-863692797</p>
+        </div>
+        <div class="col">
+            <h3>Quick Links <div class="underline"><span></span></div>
+            </h3>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Profile</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Favourites</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <h3>Shubscribe to our newslater <div class="underline"><span></span></div>
+            </h3>
+            <form class="footerForm">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" placeholder="enter your e-mail Id" required>
+                <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+            <div class="social">
+                <i class="fa-brands fa-google"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <p class="copyright">copyright @ 2023 - All Rights Reserved</p>
+</footer>
+</section>
+
+<script src="index.js"></script>
+
+    <script type="module" src="{% static 'js/main.js' %}"></script>
+
+{% endblock %}
